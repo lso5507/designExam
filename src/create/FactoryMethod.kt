@@ -8,13 +8,13 @@ package create
  */
 interface Button{
     fun render()
-    fun onCLick()
+    fun onClick()
 }
 class WindowButton:Button{
     override fun render() {
         println("WindowButton")
     }
-    override fun onCLick() {
+    override fun onClick() {
 
     }
 }
@@ -22,7 +22,7 @@ class HTMLButton:Button{
     override fun render() {
         println("HTMLButton")
     }
-    override fun onCLick() {
+    override fun onClick() {
     }
 }
 abstract class Dialog{
