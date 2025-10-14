@@ -25,19 +25,24 @@ class HTMLButton:Button{
     override fun onClick() {
     }
 }
-abstract class Dialog{
-    fun render(){
+interface  Dialog{
+     fun render()
+     fun createButton():Button
+}
+class WindowsDialog:Dialog{
+    override fun render(){
         val button = createButton()
         button.render()
     }
-    abstract fun createButton():Button
-}
-class WindowsDialog:Dialog(){
     override fun createButton(): Button { // return type = 슈퍼타입 Button
         return WindowButton()
     }
 }
-class WebDialog:Dialog(){
+class WebDialog:Dialog{
+    override fun render(){
+        val button = createButton()
+        button.render()
+    }
     override fun createButton(): Button {
         return HTMLButton()
     }
