@@ -10,42 +10,41 @@ interface Button{
     fun render()
     fun onClick()
 }
-class WindowButton:Button{
+class WindowButtonA:Button{
     override fun render() {
-        println("WindowButton")
+        println("WindowButtonA")
     }
     override fun onClick() {
 
     }
 }
-class HTMLButton:Button{
+class WindowButtonB:Button{
     override fun render() {
-        println("HTMLButton")
+        println("WindowButtonB")
     }
     override fun onClick() {
     }
 }
-abstract class Dialog{
+abstract class WindowFactory{
     fun render(){
         val button = createButton()
         button.render()
     }
     abstract fun createButton():Button
 }
-class WindowsDialog:Dialog(){
+class ConcreteFactoryA:WindowFactory(){
     override fun createButton(): Button { // return type = 슈퍼타입 Button
-        return WindowButton()
+        return WindowButtonA()
     }
 }
-class WebDialog:Dialog(){
-    override fun createButton(): Button {
-        return HTMLButton()
+class ConcreteFactoryB:WindowFactory(){
+    override fun createButton(): Button { // return type = 슈퍼타입 Button
+        return WindowButtonB()
     }
-
 }
 fun main(){
-    val windowsDialog = WindowsDialog()
-    windowsDialog.render()
-    val webDialog = WebDialog()
-    webDialog.render()
+    val factoryA = ConcreteFactoryA()
+    factoryA.render()
+    val factoryB = ConcreteFactoryB()
+    factoryB.render()
 }
