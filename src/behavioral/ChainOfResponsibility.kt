@@ -1,5 +1,9 @@
 package behavioral
 
+/**
+ * 책임 연쇄 패턴은 핸들러들의 체인(사슬)을 따라 요청을 전달할 수 있게 해주는 행동 디자인 패턴입니다
+ * Java의 Servlet Filter, Security Filter 도 해당 책임연쇄 패턴에 따름
+ */
 abstract class Handler{
     protected var nextHandler:Handler? = null
     init{
